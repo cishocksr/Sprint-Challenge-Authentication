@@ -15,4 +15,16 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 
+server.get('/', (req, res) => {
+  res.send(200).json({
+    message: 'Houston... we have ignition!!'
+  });
+});
+
+server.use((err, req, res, next) => {
+  res.status(500).json({
+    message: 'Houston... we have a problem'
+  });
+});
+
 module.exports = server;
