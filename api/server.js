@@ -16,7 +16,7 @@ server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 
 server.get('/', (req, res) => {
-  res.send(200).json({
+  res.status(200).json({
     message: 'Houston... we have ignition!!'
   });
 });
